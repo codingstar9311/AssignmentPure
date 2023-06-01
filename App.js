@@ -7,11 +7,13 @@
 
 import React from 'react';
 import { View, Text } from 'react-native';
+import { AntDesign } from './src/common/Icons';
 
-const App = (props) => {
+const App = () => {
   return (
     <View>
       <Text>Hello world</Text>
+      <AntDesign name='up' style={{ marginTop: 200 }} />
     </View>
   )
 }

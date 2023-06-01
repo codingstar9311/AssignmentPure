@@ -1,20 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import { View, Text } from 'react-native';
-import { AntDesign } from './src/common/Icons';
+import TotalNavigator from './src/navigators/TotalStackNavigator';
 
 const App = () => {
   return (
-    <View>
-      <Text>Hello world</Text>
-      <AntDesign name='up' style={{ marginTop: 200 }} />
-    </View>
+    <TotalNavigator />
   )
 }
 export default App;

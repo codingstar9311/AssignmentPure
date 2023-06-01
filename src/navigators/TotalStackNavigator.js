@@ -1,13 +1,13 @@
-import React from "react";
-import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+import { View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import AppStyle from "../common/AppStyle";
 import ScreenPath from "../common/ScreenPath";
 import AppSplashScreen from "../screens/splashes/AppSplashScreen";
 import AuthStackNavigator from "./AuthStackNavigator";
 import MainTabNavigator from "./MainTabNavigator";
-import AppStyle from "../common/AppStyle";
 
 const TotalStack = createNativeStackNavigator();
 

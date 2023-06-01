@@ -9,7 +9,19 @@ const AppStyle = StyleSheet.create({
     center: {
         alignItems: "center",
         justifyContent: "center",
-    }
+    },
+    flex_row: {
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
+    flex_row_start: {
+        alignItems: 'flex-start',
+        flexDirection: 'row'
+    },
+    paddingHorizontal: {
+        paddingHorizontal: 16
+    },
+    
 });
 
 export default AppStyle;

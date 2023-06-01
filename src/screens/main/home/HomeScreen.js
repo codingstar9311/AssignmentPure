@@ -1,18 +1,47 @@
 import { Avatar, Button, Divider, IconButton, Text } from "@react-native-material/core";
 import React, { useState } from "react";
-import { ScrollView, View, StyleSheet, Image, TouchableOpacity, TouchableHighlight } from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity, ScrollView, TouchableHighlight, Dimensions, ImageBackground } from "react-native";
 import { MaterialCommunityIcons, MaterialIcons } from "../../../common/AppIcons";
 import AppStyle from "../../../common/AppStyle";
 import ColorInfo from "../../../common/ColorInfo";
 import MainLayout from "../../../layouts/MainLayout";
 import LinearGradient from "react-native-linear-gradient";
+import Carousel from "react-native-reanimated-carousel";
 
+const WIDTH = Dimensions.get('window').width;
 const HomeScreen = (props) => {
 
     const [dataInfo, setDataInfo] = useState({
         name: 'Sebastian',
         description: 'Incredible sense of empathy and always go out of the way to make others feel good'
     });
+
+    const [learningArr, setLearningArr] = useState([
+        1, 2, 3, 4, 5, 6
+    ]);
+
+    const renderCarouselItem = ({ item, index }) => {
+        return (
+            <View style={[styles.carouselItemContainer]}>
+                <View style={styles.carouselItemContent}>
+                    <Image style={{
+                        width: '100%', borderTopRightRadius: 18,
+                        borderTopLeftRadius: 18
+                    }} source={require('../../../assets/img/carousel_image.png')} />
+                    <View style={[AppStyle.flex_row, {
+                        paddingHorizontal: 10,
+                        justifyContent: 'space-between',
+                        paddingVertical: 16
+                    }]}>
+                        <Text>Your Progress</Text>
+                        <Text>{index}/{learningArr.length} Complete</Text>
+                    </View>
+                </View>
+            </View>
+
+        )
+    }
+
     return (
         <MainLayout >
             <ScrollView style={[AppStyle.paddingHorizontal]}>
@@ -151,9 +180,24 @@ const HomeScreen = (props) => {
                                 </View>
                             </View>
                         </View>
+                        <View style={{ paddingTop: 14, paddingBottom: 14 }}>
+                            <View style={[AppStyle.flex_row, { justifyContent: 'space-between' }]}>
+                                <Text style={{ fontWeight: 'bold' }}>E-Learning</Text>
+                                <Button variant="text" title="View All" color={ColorInfo.green} uppercase={false} />
+                            </View>
+                            <View>
+                                <Carousel
+                                    width={WIDTH - 32}
+                                    height={220}
+                                    data={learningArr}
+                                    renderItem={renderCarouselItem}
+                                />
+                            </View>
+                        </View>
                     </>
                 </TouchableHighlight>
             </ScrollView>
+
         </MainLayout>
     )
 };
@@ -201,6 +245,18 @@ const styles = StyleSheet.create({
         elevation: 5,
         minHeight: 100,
         borderRadius: 16
+    },
+    carouselItemContainer: {
+        paddingHorizontal: 10
+    },
+    carouselItemContent: {
+        borderRadius: 18,
+        backgroundColor: ColorInfo.white,
+        shadowColor: '#111',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
+        elevation: 5,
     }
 });
 

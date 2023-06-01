@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { View } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AppStyle from "../common/AppStyle";
 import ScreenPath from "../common/ScreenPath";
@@ -13,11 +13,11 @@ const TotalStack = createNativeStackNavigator();
 
 const TotalStackNavigator = (props) => {
     return (
-        <View style={[AppStyle.container]}>
+        <GestureHandlerRootView style={[AppStyle.container]}>
             <SafeAreaProvider>
                 <NavigationContainer>
                     <TotalStack.Navigator
-                        initialRouteName={ScreenPath.Total.Main}
+                        initialRouteName={ScreenPath.Total.Splash}
                         screenOptions={{
                             headerShown: false,
                         }}>
@@ -36,7 +36,7 @@ const TotalStackNavigator = (props) => {
                     </TotalStack.Navigator>
                 </NavigationContainer>
             </SafeAreaProvider>
-        </View>
+        </GestureHandlerRootView>
     );
 };
 

@@ -61,7 +61,7 @@ const HomeScreen = (props) => {
                     </View>
                 </View>
                 <LinearGradient
-                    colors={['#31878A', '#7AB8B9']}
+                    colors={['#31878A', '#44A7AB', '#7AB8B9', '#7AB8B9']}
                     style={[styles.cardContainer, { backgroundColor: '#31878A', marginTop: 20 }]}>
                     <View style={[AppStyle.flex_row]}>
                         <Image source={require('../../../assets/img/icons/ic_magic.png')} />
